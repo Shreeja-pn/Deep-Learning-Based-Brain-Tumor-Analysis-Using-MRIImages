@@ -1,0 +1,6 @@
+flask
+torch
+monai
+nibabel
+numpy
+matplotlib
