@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Brain Tumor Segmentation Result</title>
+
+<style>
+
+body{
+font-family: Arial;
+background-color:#0e1a2b;
+color:white;
+text-align:center;
+margin:0;
+padding:0;
+}
+
+h1{
+margin-top:30px;
+}
+
+.container{
+width:80%;
+margin:auto;
+}
+
+.segmentation-section{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:40px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+img{
+width:420px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
+
+.legend{
+text-align:left;
+background:#16293f;
+padding:20px;
+border-radius:10px;
+}
+
+.legend h3{
+margin-top:0;
+}
+
+.legend-item{
+display:flex;
+align-items:center;
+margin-bottom:10px;
+}
+
+.color-box{
+width:20px;
+height:20px;
+margin-right:10px;
+border-radius:4px;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:50%;
+margin-top:20px;
+}
+
+th,td{
+padding:12px;
+border:1px solid white;
+}
+
+th{
+background:#1f3b5c;
+}
+
+tr:nth-child(even){
+background:#16293f;
+}
+
+.back-btn{
+display:inline-block;
+margin-top:25px;
+text-decoration:none;
+color:#00d4ff;
+font-size:16px;
+}
+
+.description{
+margin-top:20px;
+font-size:14px;
+color:#d0d0d0;
+width:70%;
+margin-left:auto;
+margin-right:auto;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>Brain Tumor Analysis Result</h1>
+
+<!-- Segmentation Output -->
+
+<h2>Segmentation Output</h2>
+
+<div class="segmentation-section">
+
+<!-- MRI Image -->
+<img src="{{ url_for('static', filename='outputs/' + image) }}">
+
+<!-- Color Legend -->
+<div class="legend">
+
+<h3>Tumor Segmentation Legend</h3>
+
+<div class="legend-item">
+<div class="color-box" style="background:yellow;"></div>
+<span>Necrotic Core</span>
+</div>
+
+<div class="legend-item">
+<div class="color-box" style="background:red;"></div>
+<span>Edema (Swelling)</span>
+</div>
+
+<div class="legend-item">
+<div class="color-box" style="background:cyan;"></div>
+<span>Enhancing Tumor</span>
+</div>
+
+</div>
+
+</div>
+
+<p class="description">
+The segmentation output highlights different tumor regions detected by the deep learning model.
+Each color represents a different pathological region in the brain tumor. This helps doctors
+analyze tumor structure and severity.
+</p>
+
+
+<!-- Tumor Classification -->
+
+<h2>Tumor Classification</h2>
+
+<table>
+
+<tr>
+<th>Prediction</th>
+<th>Result</th>
+</tr>
+
+<tr>
+<td>Tumor Type</td>
+<td>{{ tumor_type }}</td>
+</tr>
+
+<tr>
+<td>Severity Level</td>
+<td>{{ severity }}</td>
+</tr>
+
+</table>
+
+<br>
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+</div>
+
+</body>
+
+</html>
