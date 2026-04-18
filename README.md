@@ -70,4 +70,4 @@ Deep Learning for Medical Imaging
 U-Net and ResNet architectures
 
 👩‍💻 Author
-Shreeja Raju
+Shreeja.PN
